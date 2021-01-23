@@ -1,0 +1,145 @@
+---
+layout: post
+title: Raspberry PI 4 Overclocking - AndroidTV LineageOS 17.1 (Konstakang)
+date: '2020-12-27T13:40:00.004-08:00'
+author: MaX
+tags:
+- rpi
+- overclocking
+- sbc
+- LineageOS TV
+- gaming
+- Android
+- gpu_freq
+- raspberry pi
+modified_time: '2020-12-28T06:45:48.188-08:00'
+thumbnail: /img/fire-burning-cpu-circuit-board-electronic-fire-burning-cpu-circuit-board-electronic-104687771.jpg
+blogger_id: tag:blogger.com,1999:blog-7767692232967238663.post-8918572312529178627
+blogger_orig_url: https://zanzatek.blogspot.com/2020/12/raspberry-pi-4-overclocking-androidtv.html
+---
+
+<h1 style="text-align: left;">&nbsp;Raspberry PI Overclocking experience</h1>
+<div><i><b><span style="color: red;">Be advised that overclocking your device may break the warranty and burn it. This
+                article is only meant to describe some experiment and the results of it.&nbsp;</span></b></i></div>
+<div><i><b><span style="color: red;">Overclocking is dangerous and the author it is not responsible for eventual damages
+                to your device.</span></b></i></div>
+<p></p>
+<div class="separator" style="clear: both; text-align: center;"><a
+        style="margin-left: 1em; margin-right: 1em;"><img border="0" data-original-height="533"
+            data-original-width="800" height="303"
+            src="/img/fire-burning-cpu-circuit-board-electronic-fire-burning-cpu-circuit-board-electronic-104687771.jpg"
+            width="510" /></a></div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<p style="clear: both; text-align: left;"><b>Intro</b> (if you are an expert Android user, you can skip that)</p>
+<div class="separator" style="clear: both; text-align: left;">Typically an Android OS comes with few main partitions.
+    Something like:</div>
+<blockquote style="border: none; margin: 0px 0px 0px 40px; padding: 0px; text-align: left;">
+    <div class="separator" style="clear: both; text-align: left;">
+        <div class="separator" style="clear: both;"><i>/Boot (Is NOT viewable in Android)</i></div>
+    </div>
+    <div class="separator" style="clear: both; text-align: left;">
+        <div class="separator" style="clear: both;"><i>/Recovery (Is NOT viewable in Android)</i></div>
+    </div>
+    <div class="separator" style="clear: both; text-align: left;">
+        <div class="separator" style="clear: both;"><i>/Data (Userdata) (Is viewable in Android)</i></div>
+    </div>
+    <div class="separator" style="clear: both; text-align: left;">
+        <div class="separator" style="clear: both;"><i>/Cache (Is viewable in Android)</i></div>
+    </div>
+    <div class="separator" style="clear: both; text-align: left;">
+        <div class="separator" style="clear: both;"><i>/System (Is viewable in Android)</i></div>
+    </div>
+    <div class="separator" style="clear: both; text-align: left;">
+        <div class="separator" style="clear: both;"><i>/Misc (Is NOT viewable in Android)</i></div>
+    </div>
+</blockquote>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;">For my experiments I am using LineageOS TV 17.1 from
+    KonstaKang - <a href="https://konstakang.com/devices/rpi4/">https://konstakang.com/devices/rpi4/</a>- on Raspberry
+    PI4 8GB.</div>
+<div class="separator" style="clear: both; text-align: left;">LineageOS creates the following 4 partitions on the SD
+    card: the root "/", the "boot", the "userdata" and the "vendor".</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;">The boot partition contains all is needed for the startup.
+    And in particular a file called <b>config.txt</b> that is loaded at startup to configure CPU, GPU and few hardware
+    peripherals.</div>
+<div class="separator" style="clear: both; text-align: left;">We will concentrate on a set of parameters that influence
+    the clock speed of the CPU and the GPU.</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;">To edit /boot/config.txt, you can plug your SD card on
+    your PC and edit with a text editor, then save it back and boot up your&nbsp; PI.</div>
+<div class="separator" style="clear: both; text-align: left;">Eventually, you can also edit the config.txt directly on
+    your running PI, but you will need anyhow to reboot to have the changes in place.</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<p style="clear: both; text-align: left;">Parameters</p>
+<div class="separator" style="clear: both; text-align: left;">We will concentrate on few parameters of our interest:
+</div>
+<div class="separator" style="clear: both; text-align: left;">
+    <div class="separator" style="clear: both;">
+        <ul style="text-align: left;">
+            <li><b>force_turbo</b>= if set to 1 will force to overclock using the settings below</li>
+            <li><b>over_voltage</b>= needed if you above the default levels</li>
+            <li><b>arm_freq</b>= CPU frequency (I have tested 2147 and 2300, default 1500)</li>
+            <li><b>gpu_freq</b>= GPU frequency (I have used 750, default is 500)</li>
+        </ul>
+    </div>
+    <div class="separator" style="clear: both;">Useful resources:</div>
+    <div class="separator" style="clear: both;">
+        <ul style="text-align: left;">
+            <li><a
+                    href="https://www.raspberrypi.org/documentation/configuration/config-txt/overclocking.md">https://www.raspberrypi.org/documentation/configuration/config-txt/overclocking.md</a>
+            </li>
+            <li><a href="http://www.cybercputech.com/40">http://www.cybercputech.com/40</a></li>
+        </ul>
+        <div><br /></div>
+    </div>
+    <div class="separator" style="clear: both;"><br /></div>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<p style="clear: both; text-align: left;">Tuning 1 [CPU 2147 Ghz - GPU 750 Ghz]</p>
+<div class="separator" style="clear: both; text-align: left;">The parameters used for this first test were:</div>
+<div class="separator" style="clear: both; text-align: left;">
+    <div class="separator" style="clear: both;"><i><span style="color: #04ff00;"># Overclock</span></i></div>
+    <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">force_turbo=1</span></i></div>
+    <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">over_voltage=6</span></i></div>
+    <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">arm_freq=2147</span></i></div>
+    <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">gpu_freq=750</span></i></div>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;">The results were quite interesting, I have been able to
+    play Asphault9 (a bit slow with minimum graphics details) and few other games (like 3 Real Racing) with a decent
+    frame rate.</div>
+<div class="separator" style="clear: both; text-align: left;">The temperature hardly went above 42°C.</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;">
+    <p style="clear: both; text-align: left;">Tuning 2 [CPU 2300 Ghz - GPU 750 Ghz]</p>
+    <div class="separator" style="clear: both;">The parameters used for this first test were:</div>
+    <div class="separator" style="clear: both;">
+        <div class="separator" style="clear: both;"><i><span style="color: #04ff00;"># Overclock</span></i></div>
+        <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">force_turbo=1</span></i></div>
+        <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">over_voltage=8</span></i></div>
+        <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">arm_freq=2300</span></i></div>
+        <div class="separator" style="clear: both;"><i><span style="color: #04ff00;">gpu_freq=750</span></i></div>
+    </div>
+    <div class="separator" style="clear: both;"><br /></div>
+    <div class="separator" style="clear: both;">I could not see a huge difference compared to the previous settings, the
+        temperature went above 61°C while running Asphault9.&nbsp;</div>
+    <div class="separator" style="clear: both;">The performance improvement (if there was any) was negligible from user
+        point of view.</div>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<p style="clear: both; text-align: left;">Summary</p>
+<div class="separator" style="clear: both; text-align: left;">The&nbsp; first tuning settings (with the CPU set at 2147
+    Ghz) give a boost to the performances, however some heavy 3D game still not playable. The second setup (with the CPU
+    set at 2147 Ghz) did not show lot improvements but started to heat the CPU.&nbsp;</div>
+<div class="separator" style="clear: both; text-align: left;">I believe that the first setup is more safe (lower
+    frequency and lower voltage) and the performances are near to the second one. I would definitely go for he CPU set
+    at 2147 Ghz and testit for a little longer...</div>
+<div class="separator" style="clear: both; text-align: left;">&nbsp;</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div>
+<div class="separator" style="clear: both; text-align: left;">&nbsp;</div>
+<div class="separator" style="clear: both; text-align: left;"><br /></div><br /><br />
+<p></p>
