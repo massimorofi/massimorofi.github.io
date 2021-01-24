@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Jupyter Notebook Example to Elaborates COVID Italian Data
+title: Jupyter Notebook Example to Elaborate COVID Italian Data
 date: '2021-01-24T16:40:00.000-08:00'
 author: MaX
 tags:
@@ -222,9 +222,11 @@ Calculating and wrangling a bit the data to fit them in a comparable scale.
 $$
 infection.rate = nuovi.positivi/nuovi.tamponi
 $$
+
 $$
 infectedX1000=nuovi.positivi/1000
 $$
+
 $$
 deadX100=nuovi.deceduti/100
 $$
