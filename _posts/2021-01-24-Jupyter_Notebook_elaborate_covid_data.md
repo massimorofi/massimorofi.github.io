@@ -11,6 +11,7 @@ tags:
 - Development
 - Data Science
 modified_time: '2021-01-24T17:04:42.898-08:00'
+thumbnail: /img/in-post/covid_graph.png
 ---
 
 
