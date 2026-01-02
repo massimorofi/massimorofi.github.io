@@ -18,6 +18,7 @@ modified_time: '2026-01-02T16:40:00.000-08:00'
 thumbnail: /img/in-post/OpenAI_Client_Post.png
 ---
 # Building a Local AI Chat Client: Llama 3.2 with OpenAI API
+![OpenAI Cleint Python](/img/in-post/OpenAI_Client_Post.png)
 
 **Repository:** [https://github.com/massimorofi/openai_client](https://github.com/massimorofi/openai_client)
 
