@@ -10,7 +10,7 @@ tags:
 - Containers
 - Cloud
 modified_time: '2024-10-28T16:40:00.000-08:00'
-thumbnail: /img/in-post/covid_graph.png
+#thumbnail: /img/in-post/covid_graph.png
 ---
 # Setup Microk8s
 Few steps to setup MicroK8s on Ubuntu linux... and start to use it quickly...
