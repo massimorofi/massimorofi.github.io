@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'jekyll-paginate'
 
-gem "jekyll", "~> 4.0"
+gem "jekyll", "~> 4.3"
+gem "jekyll-paginate"
 gem "rake"
