@@ -138,5 +138,5 @@ For a truly agentic experience, the model needs to run commands and read files w
     qwen-agent:latest    8975289df185    12 GB    56%/44% CPU/GPU    65536      Forever 
 ```
 ## GPU Tip
-If you are not using the GPU read my previous article on how to setup a loca Ollama Docker container leveraging the GPU processing.
+If you are not using the GPU, then read my previous article on how to setup a local Ollama Docker container leveraging the GPU processing ;-).
 [https://massimorofi.com/2026/01/03/OpenAI-Client-Example-Python/](https://massimorofi.com/2026/01/03/OpenAI-Client-Example-Python/)
