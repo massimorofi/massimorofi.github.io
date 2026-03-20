@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Mastering Local AI Agents: A Complete Guide to Setting Up Claude Code with Ollama & Qwen 3.5'
-date: '2026-19-03T16:40:00.000-08:00'
+date: '2026-03-19T16:40:00.000-08:00'
 author: MaX
 tags:
 - Anthropic
@@ -15,7 +15,7 @@ tags:
 - llama
 - LocalAI
 - AI Agents
-modified_time: '2026-01-02T16:40:00.000-08:00'
+modified_time: '2026-03-19T16:40:00.000-08:00'
 thumbnail: /img/in-post/OpenAI_Client_Post.png
 ---
 
