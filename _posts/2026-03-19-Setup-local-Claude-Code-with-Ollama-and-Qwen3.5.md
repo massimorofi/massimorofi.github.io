@@ -136,6 +136,54 @@ For a truly agentic experience, the model needs to run commands and read files w
     NAME                 ID              SIZE     PROCESSOR          CONTEXT    UNTIL   
     qwen-agent:latest    8975289df185    12 GB    56%/44% CPU/GPU    65536      Forever 
 ```
+
+## 🚀 Optimized Setup: Local Claude Code with Qwen 3.5 & Ollama wilth low-end GPUs
+To achieve a reliable "Vibe Coding" experience on consumer hardware (like an RTX A1000 6GB), you must overcome two hurdles: the "AI refusal" wall ("I am a language model and cannot access files") and "JSON leaking" (where the model prints code instead of executing it). The following setup uses the Qwen 3.5:4B model—released in February 2026—which features a native "Thinking" mode and superior agentic tool-use.
+
+1. Create a "Non-Refusal" Custom Agent
+Default system prompts often restrict small models from acting as autonomous agents. We bypass this by creating a custom Ollama Modelfile that hardcodes the agent's identity and tool-calling protocol.
+
+Create a file named Modelfile and run ollama create qwen-coder-agent -f Modelfile:
+```docker
+    #Dockerfile
+    FROM qwen3.5:4b
+    # Lower temperature for deterministic coding accuracy
+    PARAMETER temperature 0.1
+    # High context window for large project specs
+    PARAMETER num_ctx 65536
+    # Stop the model from truncating its own responses
+    PARAMETER num_predict -1
+    SYSTEM """
+    You are an expert full-stack developer and DevOps engineer.
+    You operate as a terminal agent. When you need to read, write, or execute, you MUST use the provided tools immediately.
+    Do not apologize for being an AI.
+    Structure:
+    1. <think> [Briefly reason about the architecture and Docker constraints] </think>
+    2. [Call the tool, e.g., <bash> or <read_file>]
+    """
+```
+Configure Claude Code (.claude/settings.json)
+Instead of typing long flags manually, create a .claude/settings.json file in your project root. This tells Claude Code exactly how to communicate with your local "Thinking" model while skipping repetitive permission prompts.
+```json
+    {
+        "model": "qwen-coder-agent",
+        "env": {
+            "ANTHROPIC_BASE_URL": "http://localhost:11434",
+            "ANTHROPIC_AUTH_TOKEN": "ollama",
+            "OLLAMA_NUM_CTX": "32768"
+        },
+        "permissions": {
+            "allowBash": true,
+            "allowRead": true,
+            "allowWrite": true,
+            "dangerouslySkipPermissions": true
+        }
+    }
+```
+4. Why this works
+By combining the 4B Thinking model with a 32k context window, the agent can maintain a "mental map" of your entire Docker architecture and React state logic. The dangerouslySkipPermissions flag allows it to install dependencies and initialize folders autonomously, turning the LLM from a simple chatbot into a hands-free coding partner that lives entirely on your local GPU.
+
+
 ## GPU Tip
 If you are not using the GPU, then read my previous article on how to setup a local Ollama Docker container leveraging the GPU processing ;-).
 [https://massimorofi.com/2026/01/03/OpenAI-Client-Example-Python/](https://massimorofi.com/2026/01/03/OpenAI-Client-Example-Python/)
