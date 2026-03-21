@@ -18,8 +18,6 @@ tags:
 modified_time: '2026-03-19T16:40:00.000-08:00'
 thumbnail: /img/in-post/OpenAI_Client_Post.png
 ---
-
-# Mastering Local AI Agents: A Complete Guide to Setting Up Claude Code with Ollama & Qwen 3.5
 ![OpenAI Cleint Python](/img/in-post/Claude_Code_Setup_Ollama_Qwen3.5.png)
 The dream of a fully agentic developer workflow running entirely on your local machine is finally viable. Tools like Anthropic’s **Claude Code** (the CLI for Claude) are incredible, but they require a "smart" backend capable of handling deep context. While cloud models are easy, running **Ollama** and high-performance models like **Qwen 3.5:9b** inside **Docker** offers privacy and zero latency.
 
@@ -144,7 +142,7 @@ To achieve a reliable "Vibe Coding" experience on consumer hardware (like an RTX
 Default system prompts often restrict small models from acting as autonomous agents. We bypass this by creating a custom Ollama Modelfile that hardcodes the agent's identity and tool-calling protocol.
 
 Create a file named Modelfile and run ollama create qwen-coder-agent -f Modelfile:
-```docker
+```dockerfile
     #Dockerfile
     FROM qwen3.5:4b
     # Lower temperature for deterministic coding accuracy
