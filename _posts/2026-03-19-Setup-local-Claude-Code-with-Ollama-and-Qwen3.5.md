@@ -81,16 +81,15 @@ We can bypass this isolation by "piping" the file content directly into the cont
     ```
 
 3.  **Run the Create Command:**
-    The `-f -` flag tells Ollama to read the definition from the pipe instead of a local path.
-
-    ```bash
-    cat Modelfile | docker exec -i <your_ollama_container_name> ollama create qwen-agent -f -
-    ```
-    or you can use the Docker copy command:
-
-    ```bash    
+    The `-f ` flag tells Ollama to read the definition from the pipe instead of a local path.
+    
+    ```bash 
+    # Copy the Modelfile inside th container using the Docker cp command   
     docker cp Modelfile <your_ollama_container_name>:/tmp/Modelfile
+    # Create the agent
+    docker exec -i <your_ollama_container_name> ollama create qwen-agent -f /tmp/Modelfile
     ```
+
 ---
 
 ## 4. Step 3: Configure Claude Code Environment
