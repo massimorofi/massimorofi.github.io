@@ -18,9 +18,10 @@
     },
     "scripts": {
         "start": "bundle exec jekyll serve -w -l --host 0.0.0.0",
+        "clean-ports": "lsof -ti :4000 :35729 | xargs kill -9 2>/dev/null || true",
+        "stop": "npm run clean-ports && pkill -f jekyll || true",
         "dev": "grunt watch & npm run start",
         "boil": "git push boilerplate boilerplate:master",
-        "push": "git push origin master --tag",
-        "stop": "pkill -f jekyll"
+        "push": "git push origin master --tag"
     }
 }

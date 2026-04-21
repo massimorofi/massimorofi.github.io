@@ -52,13 +52,43 @@
             startOnLoad: true,  // Auto-render divs with class="mermaid"
             theme: 'default',
             securityLevel: 'loose',
-            fontFamily: 'arial',
+            fontFamily: 'arial, sans-serif',
             fontSize: 14,
             flowchart: {
                 useMaxWidth: true,
-                htmlLabels: true
+                htmlLabels: true,
+                nodeSpacing: 60,
+                rankSpacing: 60
+            },
+            themeVariables: {
+                'primaryTextColor': '#fff',
+                'primaryBorderColor': '#333',
+                'fontSize': '14px',
+                'fontFamily': 'arial, sans-serif'
             }
         });
+
+        // Apply global CSS styles for better text rendering
+        const style = document.createElement('style');
+        style.textContent = `
+            .mermaid svg text {
+                font-size: 14px !important;
+                font-family: arial, sans-serif !important;
+                fill: #fff !important;
+            }
+            .mermaid svg .nodeLabel {
+                color: #fff !important;
+            }
+            .mermaid svg tspan {
+                fill: #fff !important;
+            }
+            .mermaid g.nodes g.node rect,
+            .mermaid g.nodes g.node polygon,
+            .mermaid g.nodes g.node circle {
+                stroke-width: 2px !important;
+            }
+        `;
+        document.head.appendChild(style);
 
         // Count existing mermaid divs
         const mermaidDivs = document.querySelectorAll('div.mermaid');
