@@ -27,13 +27,13 @@ thumbnail: /img/in-post/MCP_Gateway_Post.png
 
 As enterprise organizations increasingly integrate AI into their workflows, they face a critical challenge: how to seamlessly connect multiple AI tools, services, and capabilities into a unified, manageable system. This is where the Model Context Protocol (MCP) Gateway comes in. Think of it as a traffic director for your AI applications—a unified gateway that orchestrates multiple AI servers, manages connections, and exposes tools to clients through a single, standardized interface.
 
-**MCP Protocol Info:**[https://modelcontextprotocol.io/](https://modelcontextprotocol.io/)
-
 In this article, we'll explore what an MCP Gateway is, why it's essential for enterprise setups, and most importantly, how to build one in Python. We'll use TinyMCP as our reference implementation—a lightweight yet powerful gateway that demonstrates how a few hundred lines of Python code can solve a complex architectural problem.
 
 ## What Is an MCP Gateway?
 
 Before diving into the gateway itself, let's briefly understand MCP. The **Model Context Protocol (MCP)** is a standardized protocol that enables communication between AI clients and servers. It allows clients to discover available tools, request capabilities, and execute operations across different services.
+
+**MCP Protocol Info:**[https://modelcontextprotocol.io/](https://modelcontextprotocol.io/)
 
 An **MCP Gateway** is essentially a hub that aggregates multiple MCP servers and presents them as a unified endpoint. Instead of your AI applications needing to connect directly to each individual MCP server, they connect to the gateway, which handles:
 
@@ -101,7 +101,7 @@ To better understand the MCP platform topology and the deplyment of an MCP Gatew
 To simulate a distributed environment, as playground, we will deploy 3 MCP servers and connect them to the gateway.
 Let's understand the architecture:
 
-```mermaid
+<div class="mermaid">
 graph TD
     A[Clients<br/>AI Apps, Web UI, Chat Interfaces] -->|SSE Connection| B[MCP Gateway<br/>Central Hub]
     
@@ -120,7 +120,7 @@ graph TD
     style C fill:#008800
     style D fill:#008800
     style E fill:#008800
-```
+</div>
 
 The gateway maintains a registry of available servers, each accessible via different transports:
 - **stdio**: Local process-based servers
@@ -353,7 +353,7 @@ How a gateway cna be integrated in the enterprise ecosystem ?
 What are the patterns?
 
 ### Pattern 1: Central Hub with Team Services
-```mermaid
+<div class="mermaid">
 graph TD
     A[Enterprise Teams<br/>Sales, Engineering, Operations] -->|Access| B[MCP Gateway]
     
@@ -370,10 +370,10 @@ graph TD
     style E fill:#008800
     style F fill:#008800
     style G fill:#008800
-```
+</div>
 
 ### Pattern 2: Regional Gateways with Federation
-```mermaid
+<div class="mermaid">
 graph TD
     A[US Gateway<br/>Multi-Region] -->|Federation| B[EU Gateway<br/>GDPR Safe]
     
@@ -384,10 +384,10 @@ graph TD
     style B fill:#000088
     style C fill:#008800
     style D fill:#008800
-```
+</div>
 
 ### Pattern 3: AI App with Gateway Backend
-```mermaid
+<div class="mermaid">
 graph TD
     subgraph "Multi-Agent AI Application"
         A1[Agent 1: Planning]
@@ -406,7 +406,7 @@ graph TD
     style A3 fill:#880000
     style B fill:#000088
     style C fill:#008800
-```
+</div>
 
 ## Conclusion
 

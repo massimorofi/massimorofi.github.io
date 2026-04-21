@@ -33,6 +33,83 @@
 <!-- Simple Jekyll Search -->
 <script src="{{ "/js/simple-jekyll-search.min.js" | prepend: site.baseurl }}"></script>
 
+<!-- Mermaid Diagrams Initialization -->
+<script>
+    // Initialize Mermaid diagrams - now using direct div rendering
+    function initializeMermaid() {
+        console.log('🔄 Initializing Mermaid for direct div rendering...');
+
+        if (typeof mermaid === 'undefined') {
+            console.log('⏳ Mermaid not loaded yet, retrying in 500ms...');
+            setTimeout(initializeMermaid, 500);
+            return;
+        }
+
+        console.log('✅ Mermaid loaded successfully, version:', mermaid.version);
+
+        // Initialize Mermaid with auto-rendering enabled
+        mermaid.initialize({
+            startOnLoad: true,  // Auto-render divs with class="mermaid"
+            theme: 'default',
+            securityLevel: 'loose',
+            fontFamily: 'arial',
+            fontSize: 14,
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+
+        // Count existing mermaid divs
+        const mermaidDivs = document.querySelectorAll('div.mermaid');
+        console.log('📊 Found', mermaidDivs.length, 'Mermaid divs on page');
+
+        // Initialize rendering for any existing divs
+        try {
+            mermaid.init();
+            console.log('🎨 Mermaid auto-rendering initialized');
+        } catch (error) {
+            console.error('❌ Error initializing Mermaid:', error);
+        }
+
+        // Also handle dynamically added content
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 && node.classList && node.classList.contains('mermaid')) {
+                        console.log('🔍 New Mermaid div detected, rendering...');
+                        mermaid.init(undefined, node);
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        console.log('👁️ MutationObserver set up for dynamic content');
+    }
+
+    // Start initialization when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 DOM loaded, starting Mermaid initialization...');
+            setTimeout(initializeMermaid, 100);
+        });
+    } else {
+        console.log('📄 DOM already loaded, starting Mermaid initialization...');
+        setTimeout(initializeMermaid, 100);
+    }
+
+    // Backup initialization on window load
+    window.addEventListener('load', function() {
+        console.log('🏁 Window fully loaded, ensuring Mermaid is ready...');
+        setTimeout(initializeMermaid, 100);
+    });
+</script>
+
 
 <!-- async load function -->
 <script>

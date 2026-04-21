@@ -1102,3 +1102,27 @@ img::-moz-selection {
 .no-scroll {
   overflow-y: hidden;
 }
+
+// Mermaid Diagrams Styling
+.mermaid {
+  text-align: center;
+  margin: 2em auto;
+  max-width: 100%;
+  overflow-x: auto;
+  
+  svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+// Ensure Mermaid diagrams are properly centered and responsive
+.post-container .mermaid {
+  margin: 2em 0;
+  
+  svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
