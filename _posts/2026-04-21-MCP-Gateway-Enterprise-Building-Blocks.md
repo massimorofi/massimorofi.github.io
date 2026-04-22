@@ -27,7 +27,7 @@ thumbnail: /img/in-post/MCP_Gateway_Post.png
 
 As enterprise organizations increasingly integrate AI into their workflows, they face a critical challenge: how to seamlessly connect multiple AI tools, services, and capabilities into a unified, manageable system. This is where the Model Context Protocol (MCP) Gateway comes in. Think of it as a traffic director for your AI applications—a unified gateway that orchestrates multiple AI servers, manages connections, and exposes tools to clients through a single, standardized interface.
 
-In this article, we'll explore what an MCP Gateway is, why it's essential for enterprise setups, and most importantly, how to build one in Python. We'll use TinyMCP as our reference implementation—a lightweight yet powerful gateway that demonstrates how a few hundred lines of Python code can solve a complex architectural problem.
+In this article, we'll explore what an MCP Gateway is, why it's essential for enterprise setups, and most importantly, how to build one in Python. We'll use TinyMCP as our playground implementation—a lightweight yet useful gateway that demonstrates how a few hundred lines of Python code can solve a complex architectural problem. **It is not a production ready project but can be used to play around with teh concepts we will discuss below**.
 
 ## What Is an MCP Gateway?
 
