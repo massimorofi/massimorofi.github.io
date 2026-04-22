@@ -352,7 +352,7 @@ Modern web UI for testing and managing the gateway.
 The beauty of TinyMCP is that it abstracts away the complexity of different transport protocols. Whether a server runs locally as a subprocess, inside Docker, or remotely via HTTP, the client sees the same unified interface.
 
 ## Enterprise Integration Patterns
-How a gateway cna be integrated in the enterprise ecosystem ?
+How a gateway can be integrated in the enterprise ecosystem ?
 What are the patterns?
 
 ### Pattern 1: Central Hub with Team Services
@@ -439,7 +439,7 @@ Use Docker Compose for reproducibility:
 docker-compose -f compose_mcp_servers_test.yml up
 ```
 
-### Environment Confifuration
+### Environment Configuration
 Consider:
 - **Environment Variables**: Configure via `.env`
   - `HOST`: Bind address (default: 0.0.0.0)
