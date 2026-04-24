@@ -27,7 +27,7 @@ thumbnail: /img/in-post/MCP_Gateway_Post.png
 
 As enterprise organizations increasingly integrate AI into their workflows, they face a critical challenge: how to seamlessly connect multiple AI tools, services, and capabilities into a unified, manageable system. This is where the Model Context Protocol (MCP) Gateway comes in. Think of it as a traffic director for your AI applications—a unified gateway that orchestrates multiple AI servers, manages connections, and exposes tools to clients through a single, standardized interface.
 
-In this article, we'll explore what an MCP Gateway is, why it's essential for enterprise setups, and most importantly, how to build one in Python. We'll use TinyMCP as our reference implementation—a lightweight yet powerful gateway that demonstrates how a few hundred lines of Python code can solve a complex architectural problem.
+In this article, we'll explore what an MCP Gateway is, why it's essential for enterprise setups, and most importantly, how to build one in Python. We'll use TinyMCP as our playground implementation—a lightweight yet useful gateway that demonstrates how a few hundred lines of Python code can solve a complex architectural problem. **It is not a production ready project but can be used to play around with teh concepts we will discuss below**.
 
 ## What Is an MCP Gateway?
 
@@ -352,7 +352,7 @@ Modern web UI for testing and managing the gateway.
 The beauty of TinyMCP is that it abstracts away the complexity of different transport protocols. Whether a server runs locally as a subprocess, inside Docker, or remotely via HTTP, the client sees the same unified interface.
 
 ## Enterprise Integration Patterns
-How a gateway cna be integrated in the enterprise ecosystem ?
+How a gateway can be integrated in the enterprise ecosystem ?
 What are the patterns?
 
 ### Pattern 1: Central Hub with Team Services
@@ -439,7 +439,7 @@ Use Docker Compose for reproducibility:
 docker-compose -f compose_mcp_servers_test.yml up
 ```
 
-### Environment Confifuration
+### Environment Configuration
 Consider:
 - **Environment Variables**: Configure via `.env`
   - `HOST`: Bind address (default: 0.0.0.0)
