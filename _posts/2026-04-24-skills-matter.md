@@ -28,29 +28,29 @@ To scale AI, we must move away from local configurations toward a centralized "H
 <div class="mermaid">
 graph TD
     subgraph Clients["Agentic Clients"]
-        A["Claude Code / CLI"]:::client
-        B["OpenHands / Web"]:::client
+        A["Claude Code / CLI"]:::node
+        B["OpenHands / Web"]:::node
     end
 
     Gateway["MCP GATEWAY
-    (Auth, RBAC, Audit Logging)"]
+    (Auth, RBAC, Audit Logging)"]:::node
 
     subgraph LogicServer["CENTRAL SKILLS SERVER"]
         Skills["Global Skill Library.md
-         instructions"]
+         instructions"]:::node
         Locals["Regional Overrides
-        EU/US/APAC Policies"]
+        EU/US/APAC Policies"]:::node
     end
 
     subgraph ToolServers["ENTERPRISE TOOL SERVERS"]
-        HR["HR Tool Server"]
-        ERP["Finance/ERP Server"]
-        CRM["Sales/CRM Server"]
+        HR["HR Tool Server"]:::node
+        ERP["Finance/ERP Server"]:::node
+        CRM["Sales/CRM Server"]:::node
     end
 
     subgraph IP_Protection["PROPRIETARY ENGINE"]
         BlackBox["Encrypted Logic
-        'The Secret Sauce'"]
+        'The Secret Sauce'"]:::node
     end
 
     %% Flows
@@ -59,9 +59,7 @@ graph TD
     Gateway -->|Execute Actions| ToolServers
     ToolServers -.->|Call| BlackBox
 
-    classDef client fill:#88FF88,stroke:#003366,color:#000
-    classDef Gateway fill:#003366,stroke:#000,color:#fff
-    classDef LogicServer fill:#00f5fe,stroke:#01579b,color:#000
+    classDef node fill:#000000,stroke:#000000,color:#ffffff
 </div>
 
 
