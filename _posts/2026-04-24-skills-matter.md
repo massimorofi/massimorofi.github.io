@@ -64,7 +64,6 @@ graph TD
     classDef LogicServer fill:#00f5fe,stroke:#01579b,color:#000
 </div>
 
----
 
 ## Deep Dive: How Agentic Tools (Claude Code) Leverage Skills
 Frameworks like **Claude Code** or **OpenHands** often appear to have "innate" abilities, but their intelligence is actually modular. They operate on a **Discovery-Incentivized Loop**.
