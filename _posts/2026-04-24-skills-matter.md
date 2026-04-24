@@ -37,7 +37,7 @@ Currently, most organizations are living in a state of "Prompt Spaghetti." Every
 ### The Solution: The Model Context Protocol (MCP) and DOE
 To solve these challenges, we need to stop thinking about AI as a "chat" and start thinking about it as an **Enterprise Capability.** By leveraging the **Model Context Protocol (MCP)** and organizing our workflows through the **DOE (Discovery, Orchestration, Execution)** framework, we can build a centralized "Skill Infrastructure." This architecture allows us to decouple the logic of *how* a business works from the tools that *execute* the work, providing a secure, governed, and scalable blueprint for the modern enterprise.
 
-# Orchestrating Enterprise Intelligence: The DOE Framework and Centralized MCP Skill Servers
+#### Orchestrating Enterprise Intelligence: The DOE Framework and Centralized MCP Skill Servers
 
 As AI matures within the enterprise, we are witnessing a fundamental shift in design patterns. The industry is moving away from "monolithic prompts" toward **Modular Agentic Orchestration**. 
 
@@ -48,7 +48,7 @@ To scale these systems, Enterprise Architects are adopting the **DOE (Discovery,
 ## 1. The DOE Framework: A systematic Approach For Agentic Systems
 I read a post in Linedin that immediately reasonated to me.
 
-**DISCLAIMER**: *I only had access to the post, not to the entire framework. But I believe that the high level idea fits perfectly the purpose of this post. I wante dto include some reflectionon it.*
+**DISCLAIMER**: *I only had access to the post, not to the entire framework. But I believe that the high level idea fits perfectly the purpose of this post. I wanted to include some reflection on it.*
 
 The DOE framework breaks down the lifecycle of an agentic action into three distinct, governed phases. When skills are managed centrally, each phase becomes a checkpoint for security and policy.
 
