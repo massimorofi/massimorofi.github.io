@@ -25,8 +25,7 @@ The answer lies in a paradigm shift: **Decoupling Logic from Execution.**
 ## The Anatomy of a Corporate AI Ecosystem
 To scale AI, we must move away from local configurations toward a centralized "Hub-and-Spoke" model. This ensures that every agent, regardless of where it runs, adheres to the same corporate "Source of Truth."
 
-```mermaid
-
+<div class="mermaid">
 graph TD
     subgraph Clients["Agentic Clients"]
         A["Claude Code / CLI"]:::client
@@ -63,7 +62,7 @@ graph TD
     classDef client fill:#88FF88,stroke:#003366,color:#000
     classDef Gateway fill:#003366,stroke:#000,color:#fff
     classDef LogicServer fill:#00f5fe,stroke:#01579b,color:#000
-```
+</div>
 
 ---
 
